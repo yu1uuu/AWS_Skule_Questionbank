@@ -1,0 +1,27 @@
+import boto3
+import csv
+
+def extract_text_from_document(file_path):
+    client = boto3.client('textract', region_name='your-region')  # Replace 'your-region' with your AWS region
+    with open(file_path, 'rb') as file:
+        image_bytes = bytearray(file.read())
+    response = client.detect_document_text(Document={'Bytes': image_bytes})
+    return response
+
+def save_to_csv(text_blocks, output_file):
+    with open(output_file, 'w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        csv_writer.writerow(['Question', 'C Statement'])
+        for block in text_blocks:
+            lines = block['Text'].split('\n')
+            question = lines[0]
+            statement = lines[1]
+            csv_writer.writerow([question, statement])
+
+if __name__ == "__main__":
+    file_path = 'path/to/your/image_or_pdf_file'
+    output_file = 'output.csv'
+
+    text_blocks = extract_text_from_document(file_path)['Blocks']
+    save_to_csv(text_blocks, output_file)
+    print("CSV file generated successfully.")
