@@ -1,0 +1,34 @@
+Question,C Statement
+1. Write a single C statement that generates a random even number in the range of [-150, 150] (inclusive), and uses it to declare and initialize an int-type variable randomChoice.,"int randomChoice = (rand() % 151) * 2 - 150;"
+2. Assume that all 1000 elements in the employees array have been initialized and none of the pointers are NULL. Write a single C statement that declares a character variable c and assigns it the first character of the last name of the second employee in the employees array.,"char c = employees[1]->lastName[0];"
+3. Write a single C statement that declares a variable called intPtrArray, initialized to point to an array of 10 integer pointers that is dynamically allocated.,"int **intPtrArray = malloc(10 * sizeof(int *));"
+4. Consider the following declarations:
+  typedef struct name f char *fjrstname; char *lastname;
+} Name;
+typedef struct employee
+mt SIN;
+mt employeeNumber; Name *emplName;
+) Empl;
+Empl employees[10001;
+Assume that all 1000 elements in the employees array have been initialized and none of the pointers are NULL. Write a single C statement that declares a character variable c and assigns it the first character of the last name of the second employee in the employees array.
+5. Complete the following C program, designed to search foran i t -type item, called key, in a linked list, pointed to by head.
+typedef struct node { mt data;
+struct node *link; ) Node;
+    Node *search(Node *head, mt key)
+Node *current = root;
+II insert your code in the line below between the parentheses while(
+current = current -> link;
+}
+return current;
+} 
+6.What does the following program output?
+mt correct(int a) C mtb;
+if (a == 0) C b = 0;
+) elseC
+b= a % 2 + 10 * correct(a / 2);
+}
+return b;
+mt main(void) mt number;
+number = correct(121);
+printf("The correct value for 121 is: %d\n', correct(121)); return 0;
+)
